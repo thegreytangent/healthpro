@@ -35,5 +35,32 @@
         </ul>
     </nav>
     <!-- /.sidebar-menu -->
+
+    <!-- resources/views/sidebar.blade.php -->
+
+     <!-- Try side bar by Ban -->
+ <div class="sidebar"> 
+     <h2>Barangay</h2>
+     <ul>
+         @foreach($barangays as $barangay)
+             <li>{{ $barangay }}</li>
+         @endforeach
+     </ul>
+
+     <h2>Purok</h2>
+     <ul>
+         @foreach($puroks as $purok)
+             <li>{{ $purok }}</li>
+         @endforeach
+     </ul>
+
+     <h2>Illness</h2>
+     <ul>
+         @foreach($illnesses as $illness)
+             <li>{{ $illness }}</li>
+         @endforeach
+     </ul>
+ </div>
+
 </div>
 <!-- /.sidebar -->
