@@ -38,8 +38,8 @@
 
     <!-- resources/views/sidebar.blade.php -->
 
-     <!-- Try side bar by Ban -->
- <div class="sidebar"> 
+     <!-- Test side bar by Ban -->
+ <div class="sidebar">
      <h2>Barangay</h2>
      <ul>
          @foreach($barangays as $barangay)
@@ -57,10 +57,41 @@
      <h2>Illness</h2>
      <ul>
          @foreach($illnesses as $illness)
-             <li>{{ $illness }}</li>
+             <li>
+                 {{ $illness }}
+                 <table>
+                     <thead>
+                         <tr>
+                             <th>Name</th>
+                             <th>Status</th>
+                         </tr>
+                     </thead>
+                     <tbody>
+                         @foreach($sickPeople[$illness] as $person)
+                             <tr>
+                                 <td>{{ $person['name'] }}</td>
+                                 <td>{{ $person['status'] }}</td>
+                             </tr>
+                         @endforeach
+                     </tbody>
+                 </table>
+                 <form action="{{ route('addSickPerson') }}" method="post">
+                     @csrf
+                     <label for="name">Name:</label>
+                     <input type="text" name="name" required>
+                    
+                     <label for="status">Status:</label>
+                     <input type="text" name="status" required>
+                    
+                     <input type="hidden" name="illness" value="{{ $illness }}">
+                    
+                     <button type="submit">Add Sick Person</button>
+                 </form>
+             </li>
          @endforeach
      </ul>
  </div>
+
 
 </div>
 <!-- /.sidebar -->
