@@ -7,6 +7,6 @@
     class BarangayController extends Controller
     {
         public function index() {
-            return 1;
+            return view('barangay.index');
         }
     }
