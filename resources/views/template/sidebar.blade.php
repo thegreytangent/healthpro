@@ -6,7 +6,7 @@
             <img src="dist/img/user2-160x160.jpg" class="img-circle elevation-2" alt="User Image">
         </div>
         <div class="info">
-            <a href="#" class="d-block">Alexander Pierce</a>
+            <a href="/user-settings" class="d-block">Alexander Pierce</a>
         </div>
     </div>
 
@@ -18,10 +18,7 @@
             <li class="nav-item">
                 <a href="#" class="nav-link">
                     <i class="nav-icon fas fa-tachometer-alt"></i>
-                    <p>
-                        Dashboard
-
-                    </p>
+                    <p>Dashboard</p>
                 </a>
 
             </li>
@@ -32,10 +29,30 @@
                 </a>
 
             </li>
+            <li class="nav-item">
+                <a href="/illness" class="nav-link">
+                    <i class="nav-icon fas fa-tachometer-alt"></i>
+                    <p>Manage Sickness</p>
+                </a>
+
+            </li>
+            <li class="nav-item">
+                <a href="/barangay" class="nav-link">
+                    <i class="nav-icon fas fa-tachometer-alt"></i>
+                    <p>Manage Barangay</p>
+                </a>
+
+            </li>
+            <li class="nav-item">
+                <a href="/purok" class="nav-link">
+                    <i class="nav-icon fas fa-tachometer-alt"></i>
+                    <p>Manage Purok</p>
+                </a>
+
+            </li>
         </ul>
     </nav>
     <!-- /.sidebar-menu -->
-
 
 
 </div>
