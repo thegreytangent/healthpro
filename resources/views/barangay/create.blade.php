@@ -19,10 +19,13 @@
             <div class="row">
                 <div class="col-3"></div>
                 <div class="col-4">
+                    @include('template.alert')
                     <div class="card card-success">
                         <div class="card-header">
                             <h3 class="card-title">Add New Barangay</h3>
                         </div>
+
+
 
 
                         <form method="POST" action="/barangay">
@@ -39,7 +42,7 @@
                             <div class="card-footer text-center">
                                 <button type="submit" class="btn btn-success">Save</button>
                             </div>
-                        </form> 
+                        </form>
                     </div>
                 </div>
 
