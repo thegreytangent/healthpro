@@ -23,33 +23,58 @@
 
             </li>
             <li class="nav-item">
-                <a href="/sickness-category" class="nav-link">
+                <a href="/dashboard" class="nav-link">
                     <i class="nav-icon fas fa-tachometer-alt"></i>
-                    <p>Sickness Categories</p>
+                    <p>Predictive Analytics</p>
                 </a>
 
             </li>
+
             <li class="nav-item">
-                <a href="/illness" class="nav-link">
+                <a href="#" class="nav-link">
                     <i class="nav-icon fas fa-tachometer-alt"></i>
-                    <p>Manage Sickness</p>
+                    <p>
+                       Manage Data Entry
+                        <i class="right fas fa-angle-down"></i>
+                    </p>
                 </a>
+                <ul class="nav nav-treeview" style="display: block">
+                    <li class="nav-item">
+                        <a href="/barangay" class="nav-link">
+                            <i class="far fa-circle nav-icon"></i>
+                            <p>Barangay</p>
+                        </a>
 
+                    </li>
+                    <li class="nav-item">
+                        <a href="/purok" class="nav-link">
+                            <i class="far fa-circle nav-icon"></i>
+                            <p>Purok</p>
+                        </a>
+
+                    </li>
+                    <li class="nav-item">
+                        <a href="/sickness-category" class="nav-link">
+                            <i class="far fa-circle nav-icon"></i>
+                            <p>Illness Entry</p>
+                        </a>
+
+                    </li>
+
+
+                </ul>
             </li>
+
             <li class="nav-item">
-                <a href="/barangay" class="nav-link">
+                <a href="/dashboard" class="nav-link">
                     <i class="nav-icon fas fa-tachometer-alt"></i>
-                    <p>Manage Barangay</p>
+                    <p>Logout</p>
                 </a>
 
             </li>
-            <li class="nav-item">
-                <a href="/purok" class="nav-link">
-                    <i class="nav-icon fas fa-tachometer-alt"></i>
-                    <p>Manage Purok</p>
-                </a>
 
-            </li>
+
+
         </ul>
     </nav>
     <!-- /.sidebar-menu -->

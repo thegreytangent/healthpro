@@ -21,7 +21,7 @@
                 <div class="col-lg-7">
                     <div class="card">
                         <div class="card-header">
-                            <button class="btn btn-success btn-sm">Add Barangay</button>
+                            <a href="/barangay/create" class="btn btn-success btn-sm">Add Barangay</a>
                         </div>
 
                         <div class="card-body">
@@ -37,8 +37,8 @@
                                 <tr>
                                     <td></td>
                                     <td>
-                                        <button class="btn btn-info btn-sm">Update</button>
-                                        <button class="btn btn-danger btn-sm">Delete</button>
+                                        <a href="/barangay/1" class="btn btn-info btn-sm">Update</a>
+                                        <a onclick="confirm('Do you want to delete this data?')" class="btn btn-danger btn-sm">Delete</a>
                                     </td>
                                 </tr>
 
