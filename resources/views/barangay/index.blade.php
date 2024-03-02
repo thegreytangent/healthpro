@@ -34,13 +34,15 @@
                                 </tr>
                                 </thead>
                                 <tbody>
+                                @foreach($barangays as $barangay)
                                 <tr>
-                                    <td></td>
+                                    <td>{{ $barangay->brgy_name }}</td>
                                     <td>
                                         <a href="/barangay/1" class="btn btn-info btn-sm">Update</a>
                                         <a onclick="confirm('Do you want to delete this data?')" class="btn btn-danger btn-sm">Delete</a>
                                     </td>
                                 </tr>
+                                @endforeach
 
                                 </tbody>
                             </table>

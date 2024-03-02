@@ -2,6 +2,7 @@
 
     namespace App\Http\Controllers;
 
+    use App\Models\Barangay;
     use Illuminate\Http\Request;
     use Illuminate\Support\Facades\Validator;
 
@@ -9,7 +10,12 @@
     {
         public function index()
         {
-            return view('barangay.index');
+
+            $barangays = Barangay::all();
+
+            return view('barangay.index')->with([
+                'barangays' => $barangays
+            ]);
         }
 
         public function create()
