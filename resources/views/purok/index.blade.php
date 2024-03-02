@@ -43,6 +43,20 @@
                                 <option value="barangay_id_3">Banago</option>
                                 <option value="barangay_id_4">Bata</option>
                                 <option value="barangay_id_5">Cabug</option>
+                                <option value="barangay_id_6">Estefania</option>
+                                <option value="barangay_id_7">Felisa</option>
+                                <option value="barangay_id_8">Granada</option>
+                                <option value="barangay_id_9">Handumanan</option>
+                                <option value="barangay_id_10">Mansilingan</option>
+                                <option value="barangay_id_11">Montevista</option>
+                                <option value="barangay_id_12">Pahanocoy</option>
+                                <option value="barangay_id_13">Punta Taytay</option>
+                                <option value="barangay_id_14">Singcang-Airport</option>
+                                <option value="barangay_id_15">Sum-ag</option>
+                                <option value="barangay_id_16">Taculing</option>
+                                <option value="barangay_id_17">Tangub</option>
+                                <option value="barangay_id_18">Villamonte</option>
+                                <option value="barangay_id_19">Vista Alegre</option>
                                 <!-- Add more options as needed -->
                             </select>
                         </div>
@@ -52,6 +66,7 @@
                                         <a onclick="confirm('Do you want to delete this data?')" class="btn btn-danger btn-sm">Delete</a>
                                     </td>
                                 </tr>
+                                <!-- Add more rows as needed -->
                             </tbody>
                         </table>
                     </div>
