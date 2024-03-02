@@ -3,6 +3,7 @@
     namespace App\Http\Controllers;
 
     use App\Models\Barangay;
+    use Illuminate\Http\RedirectResponse;
     use Illuminate\Http\Request;
     use Illuminate\Support\Facades\Validator;
 
@@ -25,7 +26,12 @@
 
         public function show($id)
         {
-            return view('barangay.edit');
+
+            $barangay = Barangay::find($id);
+
+            return view('barangay.edit')->with([
+                'barangay' => $barangay
+            ]);
         }
 
         public function store(Request $request)
@@ -39,5 +45,19 @@
             }
 
             return $request->all();
+        }
+
+
+        public function update(Request $req, $id): RedirectResponse
+        {
+            Barangay::where(['id' => $id])->update([
+                'brgy_name' => $req->barangay
+            ]);
+
+
+
+            return  redirectWithAlert('/barangay', [
+                'alert-info' => 'Barangay has been updated!'
+            ]);
         }
     }

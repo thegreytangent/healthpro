@@ -19,10 +19,12 @@
             <div class="row">
                 <div class="col-2"></div>
                 <div class="col-lg-7">
+                    @include('template.alert')
                     <div class="card">
                         <div class="card-header">
                             <a href="/barangay/create" class="btn btn-success btn-sm">Add Barangay</a>
                         </div>
+
 
                         <div class="card-body">
 
@@ -35,10 +37,11 @@
                                 </thead>
                                 <tbody>
                                 @foreach($barangays as $barangay)
+
                                 <tr>
                                     <td>{{ $barangay->brgy_name }}</td>
                                     <td>
-                                        <a href="/barangay/1" class="btn btn-info btn-sm">Update</a>
+                                        <a href="/barangay/{{$barangay->id}}" class="btn btn-info btn-sm">Update</a>
                                         <a onclick="confirm('Do you want to delete this data?')" class="btn btn-danger btn-sm">Delete</a>
                                     </td>
                                 </tr>
