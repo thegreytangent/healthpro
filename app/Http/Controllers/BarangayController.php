@@ -45,7 +45,13 @@
                 return redirectWithErrors($val);
             }
 
-            return $request->all();
+            Barangay::create([
+                'brgy_name' => $request->barangay
+            ]);
+
+            return  redirectWithAlert('/barangay', [
+                'alert-success' => 'New Barangay has been added!'
+            ]);
         }
 
 
