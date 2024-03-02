@@ -5,6 +5,7 @@
     use App\Models\Barangay;
     use Illuminate\Http\RedirectResponse;
     use Illuminate\Http\Request;
+    use Illuminate\Support\Facades\Session;
     use Illuminate\Support\Facades\Validator;
 
     class BarangayController extends Controller
@@ -59,5 +60,17 @@
             return  redirectWithAlert('/barangay', [
                 'alert-info' => 'Barangay has been updated!'
             ]);
+        }
+
+        public function destroy($id) {
+
+            Barangay::find($id)->delete();
+
+            Session::flash('alert-danger', 'Barangay has been deleted successfully.');
+
+            return response()->json([
+                'success' => true
+            ]);
+
         }
     }

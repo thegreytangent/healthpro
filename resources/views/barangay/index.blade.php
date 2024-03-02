@@ -42,7 +42,7 @@
                                     <td>{{ $barangay->brgy_name }}</td>
                                     <td>
                                         <a href="/barangay/{{$barangay->id}}" class="btn btn-info btn-sm">Update</a>
-                                        <a onclick="confirm('Do you want to delete this data?')" class="btn btn-danger btn-sm">Delete</a>
+                                        <a onclick="delete_data('{{$barangay->id}}')" class="btn btn-danger btn-sm">Delete</a>
                                     </td>
                                 </tr>
                                 @endforeach
@@ -72,6 +72,31 @@
 
     </div>
 @endsection
+
+@push('scripts')
+
+    <script>
+        function delete_data(id) {
+
+            if (confirm('Do you want to delete this data?')) {
+
+                    $.ajax({
+                        url: `{{config('app.url')}}/barangay/${id}`,
+                        type: 'DELETE',
+                        data: {
+                            "_token": "{{ csrf_token() }}",
+                        },
+                        success: function (result) {
+                            location.reload();
+                        }
+                    });
+            }else {
+                return false;
+            }
+
+        }
+    </script>
+@endpush
 
 
 
