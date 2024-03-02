@@ -12,14 +12,16 @@
         </div><!-- /.container-fluid -->
     </div>
 
-    <div class="content">
-        <div class="row">
-            <div class="col-2"></div>
-            <div class="col-lg-7">
-                <div class="card">
-                    <div class="card-header">
-                        <a href="/barangay/create" class="btn btn-success btn-sm">Add Barangay</a>
-                    </div>
+        <div class="content">
+            <div class="row">
+                <div class="col-2"></div>
+                <div class="col-lg-7">
+                    @include('template.alert')
+                    <div class="card">
+                        <div class="card-header">
+                            <a href="/barangay/create" class="btn btn-success btn-sm">Add Barangay</a>
+                        </div>
+
 
                     <div class="card-body">
                         
@@ -30,31 +32,22 @@
                                     <th>Barangay Name</th>
                                     <th style="width: 206px">Action</th>
                                 </tr>
-                            </thead>
-                            <tbody>
+                                </thead>
+                                <tbody>
+                                @foreach($barangays as $barangay)
+
                                 <tr>
+                                    <td>{{ $barangay->brgy_name }}</td>
                                     <td>
-                                    <div class="form-group">
-                            <select class="form-control" id="barangay_select">
-                                <option value="">Select Barangay</option>
-                                <!-- Here you can dynamically populate options with the names of barangays -->
-                                <option value="barangay_id_1">Alangilan</option>
-                                <option value="barangay_id_2">Alijis</option>
-                                <option value="barangay_id_3">Banago</option>
-                                <option value="barangay_id_4">Bata</option>
-                                <option value="barangay_id_5">Cabug</option>
-                                <!-- Add more options as needed -->
-                            </select>
-                        </div>
-                                    </td>
-                                    <td>
-                                        <a href="/barangay/1" class="btn btn-info btn-sm">Update</a>
-                                        <a onclick="confirm('Do you want to delete this data?')" class="btn btn-danger btn-sm">Delete</a>
+                                        <a href="/barangay/{{$barangay->id}}" class="btn btn-info btn-sm">Update</a>
+                                        <a onclick="delete_data('{{$barangay->id}}')" class="btn btn-danger btn-sm">Delete</a>
                                     </td>
                                 </tr>
-                            </tbody>
-                        </table>
-                    </div>
+                                @endforeach
+
+                                </tbody>
+                            </table>
+                        </div>
 
                     <div class="card-footer clearfix">
                         <ul class="pagination pagination-sm m-0 float-right">
@@ -71,3 +64,31 @@
     </div>
 </div>
 @endsection
+
+@push('scripts')
+
+    <script>
+        function delete_data(id) {
+
+            if (confirm('Do you want to delete this data?')) {
+
+                    $.ajax({
+                        url: `{{config('app.url')}}/barangay/${id}`,
+                        type: 'DELETE',
+                        data: {
+                            "_token": "{{ csrf_token() }}",
+                        },
+                        success: function (result) {
+                            location.reload();
+                        }
+                    });
+            }else {
+                return false;
+            }
+
+        }
+    </script>
+@endpush
+
+
+

@@ -25,9 +25,6 @@
                             <h3 class="card-title">Add New Barangay</h3>
                         </div>
 
-
-
-
                         <form method="POST" action="/barangay">
                             @csrf
                             <div class="card-body">
