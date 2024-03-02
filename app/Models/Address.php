@@ -4,21 +4,19 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\Relations\HasMany;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
-class Barangay extends Model
+class Address extends Model
 {
     use HasFactory;
     use Uuid;
 
     public $incrementing = false;
-    protected $table = 'barangays';
+    protected $table = 'address';
     protected $keyType = 'string';
     protected $guarded = [];
 
-
-    public function Address() : HasMany {
-        return $this->hasMany(Address::class, 'brgy_id');
+    public function Barangay(): BelongsTo {
+        return $this->belongsTo(Barangay::class);
     }
-
 }
