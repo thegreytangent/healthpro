@@ -20,21 +20,19 @@
                     <i class="nav-icon fas fa-tachometer-alt"></i>
                     <p>Dashboard</p>
                 </a>
-
             </li>
             <li class="nav-item">
                 <a href="/dashboard" class="nav-link">
                     <i class="nav-icon fas fa-tachometer-alt"></i>
                     <p>Predictive Analytics</p>
                 </a>
-
             </li>
 
             <li class="nav-item">
                 <a href="#" class="nav-link">
                     <i class="nav-icon fas fa-tachometer-alt"></i>
                     <p>
-                       Manage Data Entry
+                        Manage Data Entry
                         <i class="right fas fa-angle-down"></i>
                     </p>
                 </a>
@@ -44,24 +42,23 @@
                             <i class="far fa-circle nav-icon"></i>
                             <p>Barangay</p>
                         </a>
-
                     </li>
                     <li class="nav-item">
                         <a href="/purok" class="nav-link">
                             <i class="far fa-circle nav-icon"></i>
                             <p>Purok</p>
                         </a>
-
                     </li>
                     <li class="nav-item">
                         <a href="/sickness-category" class="nav-link">
                             <i class="far fa-circle nav-icon"></i>
                             <p>Illness Entry</p>
                         </a>
-
+                        <!-- Save button added here -->
+                        <button class="btn btn-primary save-button" onclick="saveIllnessEntry()">
+                            Save
+                        </button>
                     </li>
-
-
                 </ul>
             </li>
 
@@ -70,15 +67,17 @@
                     <i class="nav-icon fas fa-tachometer-alt"></i>
                     <p>Logout</p>
                 </a>
-
             </li>
-
-
-
         </ul>
     </nav>
     <!-- /.sidebar-menu -->
-
-
 </div>
 <!-- /.sidebar -->
+
+<!-- JavaScript code for save functionality -->
+<script>
+    function saveIllnessEntry() {
+        // Add code here to handle saving illness entry information
+        alert("Illness entry information saved!");
+    }
+</script>
