@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Address;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Validator;
 class PurokController extends Controller
 {
@@ -21,7 +22,11 @@ class PurokController extends Controller
 
     public function create()
     {
-        return view('purok.create');
+        $barangays = DB::table('barangays')->get();
+
+        return view('purok.create')->with([
+            'barangays' => $barangays
+        ]);
     }
 
     public function show($id)

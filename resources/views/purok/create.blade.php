@@ -7,7 +7,7 @@
             <div class="container-fluid">
                 <div class="row mb-2">
                     <div class="col-sm-6">
-                        <h1 class="m-0 text-dark">Barangay Information</h1>
+                        <h1 class="m-0 text-dark">Purok Information</h1>
                     </div><!-- /.col -->
 
                 </div><!-- /.row -->
@@ -22,7 +22,7 @@
                     @include('template.alert')
                     <div class="card card-success">
                         <div class="card-header">
-                            <h3 class="card-title">Add New Barangay</h3>
+                            <h3 class="card-title">Add New Purok</h3>
                         </div>
 
 
@@ -32,7 +32,16 @@
                             @csrf
                             <div class="card-body">
                                 <div class="form-group">
-                                    <label for="exampleInputEmail1">Barangay Name:</label>
+                                    <label for="exampleInputEmail1">Select Barangay:</label>
+                                    <select name="purok" id="" class="form-control">
+                                        @foreach($barangays as $barangay)
+                                            <option value="{{$barangay->id}}">{{$barangay->brgy_name}}</option>
+                                        @endforeach
+
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label for="exampleInputEmail1">Purok Name:</label>
                                     <input type="text" class="form-control" name="barangay" />
                                 </div>
 
