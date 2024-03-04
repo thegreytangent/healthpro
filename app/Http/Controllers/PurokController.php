@@ -2,13 +2,21 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Address;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 class PurokController extends Controller
 {
     public function index()
     {
-        return view('purok.index');
+
+        $addresses = Address::with(['Barangay'])->get();
+
+
+
+        return view('purok.index')->with([
+            'addresses' => $addresses
+        ]);
     }
 
     public function create()

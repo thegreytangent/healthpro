@@ -25,7 +25,8 @@
                         <table class="table table-bordered text-center mt-3">
                             <thead>
                             <tr>
-                                <th>Barangay Name</th>
+                                <th>Barangay</th>
+                                <th>Purok Name</th>
                                 <th style="width: 206px">Action</th>
                             </tr>
                             </thead>
@@ -33,6 +34,7 @@
                             @foreach($addresses as $address)
 
                                 <tr>
+                                    <td>{{ $address->getBarangay() }}</td>
                                     <td>{{ $address->prk }}</td>
                                     <td>
                                         <a href="/barangay/{{$address->id}}" class="btn btn-info btn-sm">Update</a>

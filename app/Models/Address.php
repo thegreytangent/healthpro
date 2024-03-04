@@ -17,6 +17,10 @@ class Address extends Model
     protected $guarded = [];
 
     public function Barangay(): BelongsTo {
-        return $this->belongsTo(Barangay::class);
+        return $this->belongsTo(Barangay::class, 'brgy_id');
+    }
+
+    public function getBarangay() : string {
+        return $this->Barangay->brgy_name;
     }
 }
