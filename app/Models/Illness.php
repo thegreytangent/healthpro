@@ -24,11 +24,12 @@
 
         public function getCategory(): string
         {
-            $category_name =  $this->IllnessCategory->category_name;
+            $category_name = $this->IllnessCategory->category_name;
             return ucwords($category_name);
         }
 
-        public function getName(): string {
+        public function getName(): string
+        {
             return ucwords($this->illness_name);
         }
 
