@@ -17,6 +17,8 @@
 
     Route::get('/', 'LoginController@index');
 
+    Route::get('/logout', 'LogoutController@index');
+
     Route::post('/login', 'LoginController@login');
 
     Route::resource('/barangay', 'BarangayController');
@@ -24,3 +26,5 @@
     Route::resource('/purok', 'PurokController');
 
     Route::resource('/sickness-category', 'SicknessCategoryController');
+
+
