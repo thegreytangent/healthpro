@@ -19,27 +19,27 @@
                 @include('template.alert')
                 <div class="card">
                     <div class="card-header">
-                        <a href="/purok/create" class="btn btn-success btn-sm">Add Purok</a>
+                        <a href="/illness/create" class="btn btn-success btn-sm">Add Illness</a>
                     </div>
 
                     <div class="card-body">
                         <table class="table table-bordered text-center mt-3">
                             <thead>
                             <tr>
-                                <th>Barangay</th>
-                                <th>Purok Name</th>
+                                <th>Category</th>
+                                <th>Illness</th>
                                 <th style="width: 206px">Action</th>
                             </tr>
                             </thead>
                             <tbody>
-                            @foreach($addresses as $address)
+                            @foreach($illnesses as $illness)
 
                                 <tr>
-                                    <td>{{ $address->getBarangay() }}</td>
-                                    <td>{{ $address->prk }}</td>
+                                    <td>{{ $illness->getCategory() }}</td>
+                                    <td>{{ $illness->getName() }}</td>
                                     <td>
-                                        <a href="/purok/{{$address->id}}" class="btn btn-info btn-sm">Update</a>
-                                        <a onclick="delete_data('{{$address->id}}')" class="btn btn-danger btn-sm">Delete</a>
+                                        <a href="/illness/{{$illness->id}}" class="btn btn-info btn-sm">Update</a>
+                                        <a onclick="delete_data('{{$illness->id}}')" class="btn btn-danger btn-sm">Delete</a>
                                     </td>
                                 </tr>
                             @endforeach
