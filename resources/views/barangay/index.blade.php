@@ -24,7 +24,7 @@
 
 
                     <div class="card-body">
-                        
+
 
                         <table class="table table-bordered text-center mt-3">
                             <thead>
@@ -40,7 +40,7 @@
                                     <td>{{ $barangay->brgy_name }}</td>
                                     <td>
                                         <a href="/barangay/{{$barangay->id}}" class="btn btn-info btn-sm">Update</a>
-                                        <a onclick="delete_data('{{$barangay->id}}')" class="btn btn-danger btn-sm">Delete</a>
+                                        <a style="cursor: pointer" onclick="delete_data('{{$barangay->id}}')" class="btn btn-danger btn-sm">Delete</a>
                                     </td>
                                 </tr>
                                 @endforeach
@@ -49,15 +49,6 @@
                             </table>
                         </div>
 
-                    <div class="card-footer clearfix">
-                        <ul class="pagination pagination-sm m-0 float-right">
-                            <li class="page-item"><a class="page-link" href="#">&laquo;</a></li>
-                            <li class="page-item"><a class="page-link" href="#">1</a></li>
-                            <li class="page-item"><a class="page-link" href="#">2</a></li>
-                            <li class="page-item"><a class="page-link" href="#">3</a></li>
-                            <li class="page-item"><a class="page-link" href="#">&raquo;</a></li>
-                        </ul>
-                    </div>
                 </div>
             </div>
         </div>
@@ -73,7 +64,7 @@
             if (confirm('Do you want to delete this data?')) {
 
                     $.ajax({
-                        url: `{{config('app.url')}}/barangay/${id}`,
+                        url: `{{config('app.url')}}/df/${id}`,
                         type: 'DELETE',
                         data: {
                             "_token": "{{ csrf_token() }}",

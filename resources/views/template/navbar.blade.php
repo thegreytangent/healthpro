@@ -8,7 +8,7 @@
 
         <li class="nav-item">
 
-            <a class="nav-link"  href="/">  Logout &nbsp; <i
+            <a class="nav-link"  href="/logout">  Logout &nbsp; <i
                     class="fas fa-th-large"></i></a>
         </li>
     </ul>

@@ -16,6 +16,7 @@
         <div class="row">
             <div class="col-2"></div>
             <div class="col-lg-7">
+                @include('template.alert')
                 <div class="card">
                     <div class="card-header">
                         <a href="/purok/create" class="btn btn-success btn-sm">Add Purok</a>
@@ -47,18 +48,35 @@
                         </table>
                     </div>
 
-                    <div class="card-footer clearfix">
-                        <ul class="pagination pagination-sm m-0 float-right">
-                            <li class="page-item"><a class="page-link" href="#">&laquo;</a></li>
-                            <li class="page-item"><a class="page-link" href="#">1</a></li>
-                            <li class="page-item"><a class="page-link" href="#">2</a></li>
-                            <li class="page-item"><a class="page-link" href="#">3</a></li>
-                            <li class="page-item"><a class="page-link" href="#">&raquo;</a></li>
-                        </ul>
-                    </div>
                 </div>
             </div>
         </div>
     </div>
 </div>
 @endsection
+
+@push('scripts')
+
+    <script>
+        function delete_data(id) {
+
+            if (confirm('Do you want to delete this data?')) {
+
+                $.ajax({
+                    url: `{{config('app.url')}}/purok/${id}`,
+                    type: 'DELETE',
+                    data: {
+                        "_token": "{{ csrf_token() }}",
+                    },
+                    success: function (result) {
+                        location.reload();
+                    }
+                });
+            }else {
+                return false;
+            }
+
+        }
+    </script>
+@endpush
+

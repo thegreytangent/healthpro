@@ -28,12 +28,12 @@
 
 
 
-                        <form method="POST" action="/barangay">
+                        <form method="POST" action="/purok">
                             @csrf
                             <div class="card-body">
                                 <div class="form-group">
                                     <label for="exampleInputEmail1">Select Barangay:</label>
-                                    <select name="purok" id="" class="form-control">
+                                    <select name="barangay" id="" class="form-control">
                                         @foreach($barangays as $barangay)
                                             <option value="{{$barangay->id}}">{{$barangay->brgy_name}}</option>
                                         @endforeach
@@ -42,7 +42,7 @@
                                 </div>
                                 <div class="form-group">
                                     <label for="exampleInputEmail1">Purok Name:</label>
-                                    <input type="text" class="form-control" name="barangay" />
+                                    <input type="text" class="form-control" name="purok_name" />
                                 </div>
 
 
