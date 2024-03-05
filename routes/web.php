@@ -27,4 +27,6 @@
 
     Route::resource('/sickness-category', 'SicknessCategoryController');
 
+    Route::resource('/illness', 'IllnessController');
+
 

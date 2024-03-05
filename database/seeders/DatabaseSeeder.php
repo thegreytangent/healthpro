@@ -14,6 +14,12 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
-        Barangay::factory()->has(Address::factory())->count(4)->create();
+//
+
+        $this->call([
+            BarangaySeeder::class,
+            IllnessCategorySeeder::class
+        ]);
+
     }
 }

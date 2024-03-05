@@ -50,7 +50,7 @@
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a href="/sickness-category" class="nav-link">
+                        <a href="/illness" class="nav-link">
                             <i class="far fa-circle nav-icon"></i>
                             <p>Illness Entry</p>
                         </a>
