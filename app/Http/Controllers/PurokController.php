@@ -32,14 +32,45 @@
             ]);
         }
 
+        public function update(Request $req, $id)
+        {
+
+            $val = Validator::make($req->all(), [
+                'barangay'   => 'required',
+                'purok_name' => 'required'
+            ]);
+
+            if ($val->fails()) {
+                return redirectWithErrors($val);
+            }
+
+            Address::find($id)->update([
+                'brgy_id' => $req->barangay,
+                'prk'     => $req->purok_name,
+            ]);
+
+
+            return redirectWithAlert('/purok', [
+                'alert-info' => 'Purok has been updated!'
+            ]);
+        }
+
         public function show($id)
         {
-            return view('purok.edit');
+
+            $address = Address::with(['Barangay'])
+                ->where(['id' => $id])->first();
+
+            $barangays = DB::table('barangays')->get();
+
+            return view('purok.edit')->with([
+                'address'   => $address,
+                'barangays' => $barangays
+            ]);
         }
 
         public function store(Request $request)
         {
-
 
             $val = Validator::make($request->all(), [
                 'barangay'   => 'required',
@@ -56,12 +87,13 @@
             ]);
 
 
-            return  redirectWithAlert('/purok', [
+            return redirectWithAlert('/purok', [
                 'alert-success' => 'New Purok has been added!'
             ]);
         }
 
-        public function destroy($id) {
+        public function destroy($id)
+        {
             Address::find($id)->delete();
 
             Session::flash('alert-danger', 'Purok has been deleted successfully.');
@@ -70,8 +102,6 @@
                 'success' => true
             ]);
         }
-
-
 
 
     }

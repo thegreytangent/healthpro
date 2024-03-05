@@ -38,7 +38,7 @@
                                     <td>{{ $address->getBarangay() }}</td>
                                     <td>{{ $address->prk }}</td>
                                     <td>
-                                        <a href="/barangay/{{$address->id}}" class="btn btn-info btn-sm">Update</a>
+                                        <a href="/purok/{{$address->id}}" class="btn btn-info btn-sm">Update</a>
                                         <a onclick="delete_data('{{$address->id}}')" class="btn btn-danger btn-sm">Delete</a>
                                     </td>
                                 </tr>
