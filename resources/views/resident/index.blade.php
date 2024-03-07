@@ -19,7 +19,7 @@
                     @include('template.alert')
                     <div class="card">
                         <div class="card-header">
-                            <a href="/illness/create" class="btn btn-success btn-sm">Add Resident</a>
+                            <a href="/resident/create" class="btn btn-success btn-sm">Add Resident</a>
                         </div>
 
                         <div class="card-body">

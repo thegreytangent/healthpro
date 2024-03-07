@@ -48,9 +48,6 @@
                                 <i class="far fa-circle nav-icon"></i>
                                 <p>Barangay</p>
                             </a>
-                            <button class="btn btn-success btn-sm" onclick="addBarangay()">
-                                <i class="fas fa-home"></i> Add
-                            </button>
                         </li>
                         <li class="nav-item">
                             <a href="/purok" class="nav-link">
@@ -59,13 +56,16 @@
                             </a>
                         </li>
                         <li class="nav-item">
+                            <a href="/resident" class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>Residence</p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
                             <a href="/illness" class="nav-link">
                                 <i class="far fa-circle nav-icon"></i>
                                 <p>Illness Entry</p>
                             </a>
-                            <button class="btn btn-primary btn-sm" onclick="addData()">
-                                <i class="fas fa-plus"></i> Add
-                            </button>
                         </li>
                     </ul>
                 </li>

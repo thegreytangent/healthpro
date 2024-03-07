@@ -23,4 +23,8 @@ class Address extends Model
     public function getBarangay() : string {
         return $this->Barangay->brgy_name;
     }
+
+    public function completeAddress() : string {
+        return $this->getBarangay() . ", Prk. ".$this->prk;
+    }
 }

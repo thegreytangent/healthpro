@@ -8,4 +8,11 @@ use Illuminate\Database\Eloquent\Model;
 class Resident extends Model
 {
     use HasFactory;
+    use Uuid;
+
+    public $incrementing = false;
+    protected $table = 'residents';
+    protected $keyType = 'string';
+    protected $guarded = [];
+
 }
