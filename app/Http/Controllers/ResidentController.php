@@ -11,7 +11,12 @@
     {
         public function index()
         {
-            return view('resident.index');
+
+            $residents = Resident::all();
+
+            return view('resident.index')->with([
+                'residents' => $residents
+            ]);
         }
 
         public function create()
@@ -20,6 +25,20 @@
             $roles     = family_roles();
 
             return view('resident.create')->with([
+                'addresses' => $addresses,
+                'roles'     => $roles
+            ]);
+        }
+
+        public function show($id)
+        {
+            $addresses = Address::all();
+            $roles     = family_roles();
+
+            $resident = Resident::find($id);
+
+            return view('resident.create')->with([
+                'resident'  => $resident,
                 'addresses' => $addresses,
                 'roles'     => $roles
             ]);
@@ -48,7 +67,7 @@
             ]);
 
 
-            return redirectWithAlert('/purok', [
+            return redirectWithAlert('/resident', [
                 'alert-success' => 'New resident has been added!'
             ]);
         }
