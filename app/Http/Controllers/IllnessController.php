@@ -31,29 +31,44 @@
             ]);
         }
 
-        public function store(Request $req) : RedirectResponse
-        {
-            $val = Validator::make($req->all(), [
-                'illness_category' => 'required',
-                'illness_name'     => 'required'
-            ]);
+        public function store(Request $req): RedirectResponse
+{
+    $val = Validator::make($req->all(), [
+        'illness_category' => 'required',
+        'illness_name'     => 'required'
+    ]);
 
-            if ($val->fails()) {
-                return redirectWithErrors($val);
-            }
+    if ($val->fails()) {
+        return redirect()->back()->withErrors($val)->withInput();
+    }
 
-            Illness::create([
-                'category_id'  => $req->illness_category,
-                'illness_name' => $req->illness_name,
-            ]);
+    Illness::create([
+        'category_id'  => $req->illness_category,
+        'illness_name' => $req->illness_name,
+    ]);
 
+    return redirect('/illness')->with('success', 'New Illness has been added!');
+}
 
-            return redirectWithAlert('/illness', [
-                'alert-success' => 'New Illness has been added!'
-            ]);
+public function update(Request $req, $id): RedirectResponse
+{
+    $val = Validator::make($req->all(), [
+        'illness_category' => 'required',
+        'illness_name'     => 'required'
+    ]);
 
+    if ($val->fails()) {
+        return redirect()->back()->withErrors($val)->withInput();
+    }
 
-        }
+    Illness::where(['id' => $id])->update([
+        'category_id'  => $req->illness_category,
+        'illness_name' => $req->illness_name,
+    ]);
+
+    return redirect('/illness')->with('info', 'Illness has been updated!');
+}
+
 
         public function show($id)
         {
@@ -65,29 +80,6 @@
                 'illness' => $illness
             ]);
         }
-
-        public function update(Request $req, $id)
-        {
-            $val = Validator::make($req->all(), [
-                'illness_category' => 'required',
-                'illness_name'     => 'required'
-            ]);
-
-            if ($val->fails()) {
-                return redirectWithErrors($val);
-            }
-
-            Illness::where(['id' => $id])->update([
-                'category_id'  => $req->illness_category,
-                'illness_name' => $req->illness_name,
-            ]);
-
-
-            return redirectWithAlert('/illness', [
-                'alert-info' => 'Illness has been updated!'
-            ]);
-        }
-
 
         public function destroy($id)
         {

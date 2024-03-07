@@ -15,7 +15,6 @@
 
     Route::get('/dashboard', 'DashboardController@index');
 
-
     Route::get('/', 'LoginController@index');
 
     Route::get('/logout', 'LogoutController@index');
