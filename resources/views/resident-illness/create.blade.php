@@ -25,7 +25,6 @@
                             <h3 class="card-title">Add New Resident Illness</h3>
                         </div>
 
-
                         <form method="POST" action="/resident-illness">
                             @csrf
                             <div class="card-body">
@@ -34,14 +33,14 @@
 
                                     <div class="form-group">
                                         <label for="exampleInputEmail1">Date:</label>
-                                        <input type="date" class="form-control" name="date">
+                                        <input  type="date" class="form-control" name="date">
                                     </div>
 
                                     <div class="form-group">
                                         <label for="exampleInputEmail1">Resident Name:</label>
                                         <select class="form-control" name="resident" id="">
                                             @foreach($residents as $resident)
-                                                <option value="{{$resident->id}}">{{$resident->completeName()}}</option>
+                                                <option @if($resident->id == $r->resident_id) selected @endif value="{{$resident->id}}">{{$resident->completeName()}}</option>
                                             @endforeach
                                         </select>
                                     </div>
@@ -49,7 +48,7 @@
                                         <label for="exampleInputEmail1">Illness:</label>
                                         <select class="form-control" name="illness" id="">
                                             @foreach($illnesses as $illness)
-                                                <option value="{{$illness->id}}">{{$illness->getIllness()}}</option>
+                                                <option @if($illness->id == $r->illness_id) selected @endif  value="{{$illness->id}}">{{$illness->getIllness()}}</option>
                                             @endforeach
                                         </select>
                                     </div>

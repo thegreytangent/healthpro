@@ -28,6 +28,7 @@
                             <table class="table table-bordered text-center mt-3">
                                 <thead>
                                 <tr>
+                                    <th>Date</th>
                                     <th>Resident Name</th>
                                     <th>Category</th>
                                     <th>Illness</th>
@@ -37,6 +38,7 @@
                                 <tbody>
                                 @foreach($resident_illness as $illness)
                                     <tr>
+                                        <td>{{$illness->date}}</td>
                                         <td>{{$illness->getResidentName()}}</td>
                                         <td>{{$illness->getIllnessCategory()}}</td>
                                         <td>{{$illness->getIllnessName()}}</td>

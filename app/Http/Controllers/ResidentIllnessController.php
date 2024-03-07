@@ -62,10 +62,40 @@
         public function show($id)
         {
             $resident_illness = ResidentIllness::find($id);
+            $residents        = Resident::all();
+            $illnesses        = Illness::all();
 
             return view('resident-illness.edit')->with([
-                'resident_illness' => $resident_illness
+                'r'         => $resident_illness,
+                'residents' => $residents,
+                'illnesses' => $illnesses
             ]);
+        }
+
+        public function update(Request $req, $id) {
+
+            $val = Validator::make($req->all(), [
+                'date'     => 'required',
+                'resident' => 'required',
+                'illness'  => 'required',
+            ]);
+
+            if ($val->fails()) {
+                return redirectWithErrors($val);
+            }
+
+            ResidentIllness::find($id)->update([
+                'date'        => $req->input('date'),
+                'illness_id'  => $req->input('illness'),
+                'resident_id' => $req->input('resident'),
+            ]);
+
+            return redirectWithAlert('/resident-illness', [
+                'alert-info' => 'Resident illness has been updated!'
+            ]);
+
+
+
         }
 
 
