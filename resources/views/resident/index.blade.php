@@ -73,7 +73,7 @@
             if (confirm('Do you want to delete this data?')) {
 
                 $.ajax({
-                    url: `{{config('app.url')}}/illness/${id}`,
+                    url: `{{config('app.url')}}/resident/${id}`,
                     type: 'DELETE',
                     data: {
                         "_token": "{{ csrf_token() }}",

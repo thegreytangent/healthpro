@@ -5,6 +5,7 @@
     use App\Models\Address;
     use App\Models\Resident;
     use Illuminate\Http\Request;
+    use Illuminate\Support\Facades\Session;
     use Illuminate\Support\Facades\Validator;
 
     class ResidentController extends Controller
@@ -99,4 +100,17 @@
                 'alert-info' => 'Resident has been updated!'
             ]);
         }
+
+
+        public function destroy($id)
+        {
+            Resident::find($id)->delete();
+
+            Session::flash('alert-danger', 'Resident has been deleted successfully.');
+
+            return response()->json([
+                'success' => true
+            ]);
+        }
+
     }

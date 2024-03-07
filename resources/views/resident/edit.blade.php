@@ -25,9 +25,6 @@
                             <h3 class="card-title">Update Resident</h3>
                         </div>
 
-
-
-
                         <form method="POST" action="/resident/{{$resident->id}}">
                             @csrf
                             <input type="hidden" name="_method" value="PUT">
