@@ -13,7 +13,6 @@
         public function index()
         {
 
-
             $barangays = Barangay::all();
 
             return view('barangay.index')->with([
