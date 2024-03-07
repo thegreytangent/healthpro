@@ -2,9 +2,11 @@
 
     namespace App\Http\Controllers;
 
+    use App\Models\Address;
     use App\Models\Barangay;
     use Illuminate\Http\RedirectResponse;
     use Illuminate\Http\Request;
+    use Illuminate\Support\Facades\DB;
     use Illuminate\Support\Facades\Session;
     use Illuminate\Support\Facades\Validator;
 
@@ -22,6 +24,8 @@
 
         public function create()
         {
+
+
             return view('barangay.create');
         }
 

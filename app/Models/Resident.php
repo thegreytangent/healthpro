@@ -1,11 +1,44 @@
 <?php
 
-namespace App\Models;
+    namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
-use Illuminate\Database\Eloquent\Model;
+    use Carbon\Carbon;
+    use Illuminate\Database\Eloquent\Factories\HasFactory;
+    use Illuminate\Database\Eloquent\Model;
+    use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
-class Resident extends Model
-{
-    use HasFactory;
-}
+    class Resident extends Model
+    {
+        use HasFactory;
+        use Uuid;
+
+        public $incrementing = false;
+        protected $table = 'residents';
+        protected $keyType = 'string';
+        protected $guarded = [];
+
+
+        public function Address(): BelongsTo
+        {
+            return $this->belongsTo(Address::class);
+        }
+
+        public function getAddress(): string
+        {
+            return $this->Address->completeAddress();
+        }
+
+        public function getAge()
+        {
+             $birthday = $this->birthdate;
+
+           return Carbon::parse($birthday)->diff(Carbon::now())->format('%y year/s old');
+        }
+
+        public function getRoles(): string
+        {
+
+            return $this->family_role;
+
+        }
+    }

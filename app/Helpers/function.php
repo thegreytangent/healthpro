@@ -102,3 +102,12 @@
         ];
     }
 
+    function family_roles(): array
+    {
+        return [
+            'parent'      => 'Parent',
+            'child'       => 'Child',
+            'grandparent' => 'GrandParent'
+        ];
+    }
+

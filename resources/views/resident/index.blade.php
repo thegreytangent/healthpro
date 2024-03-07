@@ -14,12 +14,12 @@
 
         <div class="content">
             <div class="row">
-                <div class="col-1"></div>
-                <div class="col-lg-9">
+
+                <div class="col-lg-12">
                     @include('template.alert')
                     <div class="card">
                         <div class="card-header">
-                            <a href="/illness/create" class="btn btn-success btn-sm">Add Resident</a>
+                            <a href="/resident/create" class="btn btn-success btn-sm">Add Resident</a>
                         </div>
 
                         <div class="card-body">
@@ -28,11 +28,30 @@
                                 <tr>
                                     <th>Firstname</th>
                                     <th>Lastname</th>
+
+                                    <th>Age</th>
+                                    <th>Roles</th>
                                     <th>Address</th>
                                     <th style="width: 206px">Action</th>
                                 </tr>
                                 </thead>
                                 <tbody>
+                                @foreach($residents as $resident)
+                                    <tr>
+                                        <td>{{$resident->firstname}}</td>
+                                        <td>{{$resident->lastname}}</td>
+                                        <td>{{$resident->getAge()}}</td>
+                                        <td>{{$resident->getRoles()}}</td>
+                                        <td>{{$resident->getAddress()}}</td>
+
+                                        <td>
+                                            <a href="/resident/{{$resident->id}}" class="btn btn-info btn-sm">Update</a>
+                                            <a onclick="delete_data('{{$resident->id}}')" class="btn btn-danger btn-sm">Delete</a>
+                                        </td>
+
+                                    </tr>
+                                @endforeach
+
 
 
                                 </tbody>
@@ -54,7 +73,7 @@
             if (confirm('Do you want to delete this data?')) {
 
                 $.ajax({
-                    url: `{{config('app.url')}}/illness/${id}`,
+                    url: `{{config('app.url')}}/resident/${id}`,
                     type: 'DELETE',
                     data: {
                         "_token": "{{ csrf_token() }}",
