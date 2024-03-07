@@ -59,5 +59,14 @@
 
         }
 
+        public function show($id)
+        {
+            $resident_illness = ResidentIllness::find($id);
+
+            return view('resident-illness.edit')->with([
+                'resident_illness' => $resident_illness
+            ]);
+        }
+
 
     }

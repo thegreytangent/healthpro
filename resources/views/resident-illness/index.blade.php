@@ -38,15 +38,12 @@
                                         <td>{{$illness->getResidentName()}}</td>
                                         <td>{{$illness->getIllnessCategory()}}</td>
                                         <td>{{$illness->getIllnessName()}}</td>
-
                                         <td>
                                             <a href="/resident-illness/{{$illness->id}}" class="btn btn-info btn-sm">Update</a>
                                             <a onclick="delete_data('{{$illness->id}}')" class="btn btn-danger btn-sm">Delete</a>
                                         </td>
-
                                     </tr>
                                 @endforeach
-
 
 
                                 </tbody>
@@ -77,7 +74,7 @@
                         location.reload();
                     }
                 });
-            }else {
+            } else {
                 return false;
             }
 
