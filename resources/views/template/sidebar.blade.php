@@ -50,6 +50,12 @@
                         </a>
                     </li>
                     <li class="nav-item">
+                        <a href="/resident" class="nav-link">
+                            <i class="far fa-circle nav-icon"></i>
+                            <p>Resident</p>
+                        </a>
+                    </li>
+                    <li class="nav-item">
                         <a href="/illness" class="nav-link">
                             <i class="far fa-circle nav-icon"></i>
                             <p>Illness Entry</p>

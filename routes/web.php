@@ -29,4 +29,7 @@
 
     Route::resource('/illness', 'IllnessController');
 
+    Route::resource('/resident', 'ResidentController');
+
+
 
