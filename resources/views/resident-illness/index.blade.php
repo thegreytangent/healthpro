@@ -19,7 +19,7 @@
                     @include('template.alert')
                     <div class="card">
                         <div class="card-header">
-                            <a href="/resident-illness/create" class="btn btn-success btn-sm">Add Resident</a>
+                            <a href="/resident-illness/create" class="btn btn-success btn-sm">Add Resident Illness</a>
                         </div>
 
                         <div class="card-body">
@@ -33,20 +33,18 @@
                                 </tr>
                                 </thead>
                                 <tbody>
-                                @foreach($resident_illness as $resident)
-{{--                                    <tr>--}}
-{{--                                        <td>{{$resident->firstname}}</td>--}}
-{{--                                        <td>{{$resident->lastname}}</td>--}}
-{{--                                        <td>{{$resident->getAge()}}</td>--}}
-{{--                                        <td>{{$resident->getRoles()}}</td>--}}
-{{--                                        <td>{{$resident->getAddress()}}</td>--}}
+                                @foreach($resident_illness as $illness)
+                                    <tr>
+                                        <td>{{$illness->getResidentName()}}</td>
+                                        <td>{{$illness->getIllnessCategory()}}</td>
+                                        <td>{{$illness->getIllnessName()}}</td>
 
-{{--                                        <td>--}}
-{{--                                            <a href="/resident/{{$resident->id}}" class="btn btn-info btn-sm">Update</a>--}}
-{{--                                            <a onclick="delete_data('{{$resident->id}}')" class="btn btn-danger btn-sm">Delete</a>--}}
-{{--                                        </td>--}}
+                                        <td>
+                                            <a href="/resident-illness/{{$illness->id}}" class="btn btn-info btn-sm">Update</a>
+                                            <a onclick="delete_data('{{$illness->id}}')" class="btn btn-danger btn-sm">Delete</a>
+                                        </td>
 
-{{--                                    </tr>--}}
+                                    </tr>
                                 @endforeach
 
 

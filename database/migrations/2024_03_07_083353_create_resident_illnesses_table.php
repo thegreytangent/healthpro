@@ -15,7 +15,7 @@ return new class extends Migration
             $table->uuid('id')->primary();
             $table->date('date');
             $table->string('illness_id')->index();
-            $table->string('patient_id')->index();
+            $table->string('resident_id')->index();
 
 
             $table->foreign('illness_id')
@@ -25,9 +25,9 @@ return new class extends Migration
                 ->onUpdate('CASCADE');
 
 
-            $table->foreign('patient_id')
+            $table->foreign('resident_id')
                 ->references('id')
-                ->on('patients')
+                ->on('residents')
                 ->onDelete('CASCADE')
                 ->onUpdate('CASCADE');
 

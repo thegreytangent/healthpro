@@ -18,6 +18,10 @@
         protected $guarded = [];
 
 
+        public function completeName(): string {
+            return  ucfirst($this->lastname).", ". ucfirst($this->firstname);
+        }
+
         public function Address(): BelongsTo
         {
             return $this->belongsTo(Address::class);

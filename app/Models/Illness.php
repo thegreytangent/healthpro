@@ -22,6 +22,10 @@
             return $this->belongsTo(IllnessCategory::class, 'category_id');
         }
 
+        public function getIllness() : string {
+            return ucfirst($this->illness_name)  . " (".$this->getCategory().")";
+        }
+
         public function getCategory(): string
         {
             $category_name = $this->IllnessCategory->category_name;

@@ -7,7 +7,7 @@
             <div class="container-fluid">
                 <div class="row mb-2">
                     <div class="col-sm-6">
-                        <h1 class="m-0 text-dark">Resident Illness  Information</h1>
+                        <h1 class="m-0 text-dark">Resident Illness Information</h1>
                     </div><!-- /.col -->
 
                 </div><!-- /.row -->
@@ -26,39 +26,38 @@
                         </div>
 
 
-
-
                         <form method="POST" action="/resident-illness">
                             @csrf
                             <div class="card-body">
 
                                 <div class="form-group">
 
-                                <div class="form-group">
-                                    <label for="exampleInputEmail1">Resident Name:</label>
-                                    <select class="form-control" name="family_role" id="">
-                                        @foreach($residents as $resident)
-                                            <option value="{{$resident->id}}">{{$resident->completeName()}}</option>
-                                        @endforeach
-                                    </select>
+                                    <div class="form-group">
+                                        <label for="exampleInputEmail1">Date:</label>
+                                        <input type="date" class="form-control" name="date">
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label for="exampleInputEmail1">Resident Name:</label>
+                                        <select class="form-control" name="resident" id="">
+                                            @foreach($residents as $resident)
+                                                <option value="{{$resident->id}}">{{$resident->completeName()}}</option>
+                                            @endforeach
+                                        </select>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="exampleInputEmail1">Illness:</label>
+                                        <select class="form-control" name="illness" id="">
+                                            @foreach($illnesses as $illness)
+                                                <option value="{{$illness->id}}">{{$illness->getIllness()}}</option>
+                                            @endforeach
+                                        </select>
+                                    </div>
                                 </div>
-                                <div class="form-group">
-                                    <label for="exampleInputEmail1">Illness:</label>
-                                    <select class="form-control" name="address" id="">
-                                        @foreach($illnesses as $illness)
-                                        <option value="{{$illness->id}}">1</option>
-                                        @endforeach
-                                    </select>
+
+                                <div class="card-footer text-center">
+                                    <button type="submit" class="btn btn-success">Save</button>
                                 </div>
-
-
-
-
-                            </div>
-
-                            <div class="card-footer text-center">
-                                <button type="submit" class="btn btn-success">Save</button>
-                            </div>
                         </form>
                     </div>
                 </div>
