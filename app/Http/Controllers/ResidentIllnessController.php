@@ -6,6 +6,7 @@
     use App\Models\Resident;
     use App\Models\ResidentIllness;
     use Illuminate\Http\Request;
+    use Illuminate\Support\Facades\Session;
     use Illuminate\Support\Facades\Validator;
 
     class ResidentIllnessController extends Controller
@@ -97,6 +98,18 @@
 
 
         }
+
+        public function destroy($id)
+        {
+            ResidentIllness::find($id)->delete();
+
+            Session::flash('alert-danger', 'Resident illness has been deleted successfully.');
+
+            return response()->json([
+                'success' => true
+            ]);
+        }
+
 
 
     }
