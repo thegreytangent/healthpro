@@ -40,7 +40,7 @@
                                         <label for="exampleInputEmail1">Resident Name:</label>
                                         <select class="form-control" name="resident" id="">
                                             @foreach($residents as $resident)
-                                                <option @if($resident->id == $r->resident_id) selected @endif value="{{$resident->id}}">{{$resident->completeName()}}</option>
+                                                <option value="{{$resident->id}}">{{$resident->completeName()}}</option>
                                             @endforeach
                                         </select>
                                     </div>
@@ -48,7 +48,7 @@
                                         <label for="exampleInputEmail1">Illness:</label>
                                         <select class="form-control" name="illness" id="">
                                             @foreach($illnesses as $illness)
-                                                <option @if($illness->id == $r->illness_id) selected @endif  value="{{$illness->id}}">{{$illness->getIllness()}}</option>
+                                                <option  value="{{$illness->id}}">{{$illness->getIllness()}}</option>
                                             @endforeach
                                         </select>
                                     </div>
