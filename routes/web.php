@@ -15,6 +15,7 @@
 
     Route::get('/dashboard', 'DashboardController@index');
 
+
     Route::get('/', 'LoginController@index');
 
     Route::get('/logout', 'LogoutController@index');
@@ -30,6 +31,8 @@
     Route::resource('/illness', 'IllnessController');
 
     Route::resource('/resident', 'ResidentController');
+
+    Route::resource('/resident-illness', 'ResidentIllnessController');
 
 
 

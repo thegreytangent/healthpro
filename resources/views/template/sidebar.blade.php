@@ -24,13 +24,13 @@
                 <li class="nav-item">
                     <a href="/dashboard" class="nav-link">
                         <i class="nav-icon fas fa-tachometer-alt"></i>
-                        <p>Dashboard</p>
+                        <p>Predictive Analytics</p>
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a href="/dashboard" class="nav-link">
+                    <a href="/resident-illness" class="nav-link">
                         <i class="nav-icon fas fa-tachometer-alt"></i>
-                        <p>Predictive Analytics</p>
+                        <p>Manage Resident Illness</p>
                     </a>
                 </li>
 
