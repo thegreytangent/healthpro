@@ -44,32 +44,25 @@
             $val = Validator::make($request->all(), [
                 'barangay' => 'required'
             ]);
-
+        
             if ($val->fails()) {
-                return redirectWithErrors($val);
+                return redirect()->back()->withErrors($val)->withInput();
             }
-
+        
             Barangay::create([
                 'brgy_name' => $request->barangay
             ]);
-
-            return  redirectWithAlert('/barangay', [
-                'alert-success' => 'New Barangay has been added!'
-            ]);
+        
+            return redirect('/barangay')->with('success', 'New Barangay has been added!');
         }
-
 
         public function update(Request $req, $id): RedirectResponse
         {
             Barangay::where(['id' => $id])->update([
                 'brgy_name' => $req->barangay
             ]);
-
-
-
-            return  redirectWithAlert('/barangay', [
-                'alert-info' => 'Barangay has been updated!'
-            ]);
+        
+            return redirect('/barangay')->with('info', 'Barangay has been updated!');
         }
 
         public function destroy($id) {
